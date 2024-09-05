@@ -1,0 +1,4 @@
+az keyvault secret set --vault-name taylorkeyvaultansible --name AzureSubscriptionId --value 071b49cc-308c-44c8-97d9-98a762013202
+az keyvault secret set --vault-name taylorkeyvaultansible --name AzureClientId --value <appId>
+az keyvault secret set --vault-name taylorkeyvaultansible --name AzureSecret --value <password>
+az keyvault secret set --vault-name taylorkeyvaultansible --name AzureTenant --value <tenant>

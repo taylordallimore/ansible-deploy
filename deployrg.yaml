@@ -1,0 +1,14 @@
+---
+- name: Create Azure Resource Group
+  hosts: localhost
+  tasks:
+    - name: Create Resource Group
+      azure_rm_resourcegroup:
+        name: taylorsnewresourcegroup
+        location: australiaeast
+        state: present
+      register: result
+
+    - name: Show the result
+      debug:
+        msg: "Resource Group Created: {{ result }}"

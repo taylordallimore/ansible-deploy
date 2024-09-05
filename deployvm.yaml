@@ -1,0 +1,19 @@
+- name: Deploy Azure Resource Group
+  hosts: localhost
+  vars:
+    subscription_id: "{{ lookup('azure_keyvault_secret', 'AzureSubscriptionId') }}"
+    client_id: "{{ lookup('azure_keyvault_secret', 'AzureClientId') }}"
+    client_secret: "{{ lookup('azure_keyvault_secret', 'AzureSecret') }}"
+    tenant_id: "{{ lookup('azure_keyvault_secret', 'AzureTenant') }}"
+    keyvault_name: "myKeyVault"
+
+  tasks:
+    - name: Create Resource Group
+      azure_rm_resourcegroup:
+        name: myResourceGroup
+        location: eastus
+        state: present
+        subscription_id: "{{ subscription_id }}"
+        client_id: "{{ client_id }}"
+        secret: "{{ client_secret }}"
+        tenant: "{{ tenant_id }}"
